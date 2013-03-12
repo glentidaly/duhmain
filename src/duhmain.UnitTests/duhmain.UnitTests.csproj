@@ -50,6 +50,7 @@
     <Compile Include="EntityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceRepositoryTests.cs" />
+    <Compile Include="VersionedEntityTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

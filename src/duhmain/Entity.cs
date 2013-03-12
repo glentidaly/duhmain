@@ -18,13 +18,26 @@ namespace duhmain
         string Id { get; }
     }
 
+    /// <summary>
+    /// Represents an entity that contains an opaque version identifier (like an etag)
+    /// </summary>
+    public interface IVersionedEntity : IEntity 
+    {
+        /// <summary>
+        /// An opaque identifier for the version of this entity that may be 
+        /// used for optimistic concurrenty purposes.
+        /// </summary>
+        string Version { get; }
+
+    }
+
 
     /// <summary>
     /// Base implementation of an entity.
     /// </summary>
     public abstract class Entity : IEntity
     {
-        #region constructore
+        #region constructors
 
         public Entity()
         {
@@ -48,6 +61,34 @@ namespace duhmain
         /// <remarks>If this is null or empty, it likely means that the entity state 
         /// is new and hasn't been committed to its owning repository.</remarks>
         public string Id { get; private set; }
+
+    }
+
+    /// <summary>
+    /// Base implementation of an entity that retains an opaque version identifier
+    /// that may be used for optimistic concurrency purposes.
+    /// </summary>
+    public abstract class VersionedEntity : Entity, IVersionedEntity
+    {
+        #region constructors
+
+        public VersionedEntity()
+        {
+        }
+
+        public VersionedEntity(string id, string version = null)
+            :base(id)
+        {
+            this.Version = version;
+        }
+
+        #endregion
+
+        /// <summary>
+        /// An opaque identifier for the version of this entity that may be 
+        /// used for optimistic concurrenty purposes.
+        /// </summary>
+        public string Version { get; private set; }
 
     }
 }
