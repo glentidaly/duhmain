@@ -40,10 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
-    <Compile Include="CommandResult.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="Executable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Query.cs" />
     <Compile Include="ServiceLocator.cs" />
     <Compile Include="VersionedEntity.cs" />
   </ItemGroup>

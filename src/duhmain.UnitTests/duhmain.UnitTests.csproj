@@ -44,9 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandResultTests.cs" />
     <Compile Include="CommandTests.cs" />
     <Compile Include="ContextTests.cs" />
+    <Compile Include="QueryTests.cs" />
+    <Compile Include="ExecutableTests.cs" />
     <Compile Include="EntityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceRepositoryTests.cs" />

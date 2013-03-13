@@ -4,13 +4,12 @@ using System;
 namespace duhmain.UnitTests.Core
 {
     [TestFixture]
-    public class CommandTests : ExecutableTests
+    public class QueryTests : ExecutableTests
     {
-
 
         #region helpers
 
-        protected class TestCommand<TResult> : Command<TResult>
+        protected class TestQuery<TResult> : Query<TResult>
         {
             public Exception ExceptionToThrow { get; set; }
             public TResult ResultToReturn { get; set; }
@@ -32,7 +31,7 @@ namespace duhmain.UnitTests.Core
 
         protected override IExecutable<TResult> GetExecutable<TResult>(TResult resultToReturn = default(TResult), Exception exceptionToThrow = null )
         {
-            var cmd = new TestCommand<TResult>();
+            var cmd = new TestQuery<TResult>();
             cmd.ResultToReturn = resultToReturn;
             cmd.ExceptionToThrow = exceptionToThrow;
             return cmd;
